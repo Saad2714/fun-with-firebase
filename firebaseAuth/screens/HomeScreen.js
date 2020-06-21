@@ -6,7 +6,7 @@ import * as firebase from 'firebase';
 
 
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 
 export default class HomeScreen extends React.Component{

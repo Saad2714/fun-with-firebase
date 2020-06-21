@@ -1,8 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 
 import * as firebase from 'firebase';
+
+// Import Screens
+
+import HomeScreen from './screens/HomeScreen'
+import SignUpScreen from'./screens/SignUpScreen';
+import SignInScreen from './screens/SignInScreen'
+import LoadingScreen from './screens/LoadingScreen'
+
+
 
 
 
@@ -19,20 +30,21 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const MainNavigator = createStackNavigator(
+  {
+    Loading: {screen : LoadingScreen},
+    SignIn: {screen : SignInScreen},
+    SignUp: {screen : SignUpScreen},
+    Home: {screen : HomeScreen},
   },
-});
+  {
+    // Launching Screen
+    initialRouteName: "Loading"
+  }
+)
+
+// Creating App Container
+
+const App = createAppContainer(MainNavigator) ;
+
+export default App;

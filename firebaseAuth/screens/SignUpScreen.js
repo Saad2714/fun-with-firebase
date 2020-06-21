@@ -6,14 +6,14 @@ import * as firebase from 'firebase';
 
 
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 
-export default class HomeScreen extends React.Component{
+export default class SignUp extends React.Component{
     render(){
   return (
     <View style={styles.container}>
-      <Text>Hey this is your Sign In Screen !
+      <Text>Hey this is your Home Screen !
       </Text>
     </View>
   );
