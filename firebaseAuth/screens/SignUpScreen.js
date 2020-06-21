@@ -24,6 +24,23 @@ export default class SignupScreen extends React.Component {
     header: null
   };
 
+  signupUser = (name, email, password) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(authenticate => {
+        return authenticate.user
+          .updateProfile({
+            displayName: name
+          })
+          .then(() => {
+            this.props.navigation.replace("Home");
+          });
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  };
 
   render() {
     return (
