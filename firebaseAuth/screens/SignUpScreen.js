@@ -51,7 +51,7 @@ export default class SignupScreen extends React.Component {
       >
         <View style={styles.logoContainer}>
           <Image source={require("../assets/anchor3.png")} />
-          <Text>LearnCodeOnline.in</Text>
+          <Text>hey, You are at Sign up</Text>
         </View>
         <Form style={styles.form}>
           <Item floatingLabel>
